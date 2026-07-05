@@ -1,6 +1,6 @@
-FROM python:3.7-slim
+FROM python:3.10-alpine
 RUN mkdir -p /usr/local/http-server
-RUN useradd runner -d /home/runner -m -s /bin/bash
+RUN adduser -D -h /home/runner -s /bin/sh runner
 WORKDIR /usr/local/http-server
 ADD ./application.py /usr/local/http-server/application.py
 RUN chown -R runner:runner /usr/local/http-server/
